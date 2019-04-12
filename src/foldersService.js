@@ -30,6 +30,10 @@ const foldersService = {
     return knex('folders')
       .where({id })
       .update(newName);
+  },
+  getFolderNotes(knex,id){
+    return knex('notes')
+      .where({folder_id: id});
   }
 };
 

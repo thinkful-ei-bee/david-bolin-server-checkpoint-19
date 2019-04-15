@@ -93,3 +93,4 @@ noteRouter
       .catch(next);
   });
   
+  module.exports = noteRouter;

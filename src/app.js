@@ -34,8 +34,8 @@ app.use(morgan(morganOption));
 app.use(cors());
 app.use(helmet());
 
-app.use(folderRouter);
-app.use(noteRouter);
+//app.use(folderRouter);
+//app.use(noteRouter);
 
 // TODO: see if this works
 app.get('/', (req, res,next) => {

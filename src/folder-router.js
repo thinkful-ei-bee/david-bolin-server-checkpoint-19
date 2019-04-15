@@ -4,7 +4,6 @@ const express = require('express');
 
 const folderRouter = express.Router();
 const bodyParser = express.json();
-const logger = require('./logger');
 const foldersService = require('./foldersService');
 const xss = require('xss');
 
@@ -103,3 +102,4 @@ folderRouter
       .catch(next);
   });
   
+  module.exports = folderRouter;

@@ -39,7 +39,7 @@ noteRouter
       .catch(next);
   });
 noteRouter  
-  .route('/api/note/:id')
+  .route('/api/notes/:id')
   .all((req,res,next)=>{
     notesService.getById(
       req.app.get('db'),
@@ -59,10 +59,11 @@ noteRouter
   .get((req,res,next) => {
     return res.json(serializeNote(res.note));
   })
-  .delete((req,res,next)=>{
+  .delete((req, res, next) => {
     const { id } = req.params;
     const knexInstance = req.app.get('db');
-    notesService.deleteNote(knexInstance,id)
+    console.log(id);
+    return notesService.deleteNote(knexInstance, id)
       .then(() => {
         res.status(204).end();
       })

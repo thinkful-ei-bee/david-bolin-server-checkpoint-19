@@ -44,7 +44,7 @@ folderRouter
       .catch(next);
   });
 folderRouter  
-  .route('/api/folder/:id')
+  .route('/api/folders/:id')
   .all((req,res,next)=>{
     foldersService.getById(
       req.app.get('db'),

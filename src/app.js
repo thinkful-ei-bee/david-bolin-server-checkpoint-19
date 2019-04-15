@@ -6,10 +6,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
-const logger = require('./logger');
 const folderRouter = require('./folder-router');
 const noteRouter = require('./note-router');
-const foldersService = require('./foldersService');
 const notesService = require('./notesService');
 const app = express();
 
@@ -47,11 +45,13 @@ app.get('/', (req, res,next) => {
     .catch(next);
 });
 
+// eslint-disable-next-line no-unused-vars
 app.use(function errorHandler(error, req, res, next) {
   let response;
   if (NODE_ENV === 'production') {
     response = { error: { message: 'server error' } };
   } else {
+    // eslint-disable-next-line no-console
     console.error(error);
     response = { message: error.message, error };
   }

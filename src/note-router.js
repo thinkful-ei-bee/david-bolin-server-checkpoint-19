@@ -56,7 +56,7 @@ noteRouter
       })
       .catch(next);
   })
-  .get((req,res,next) => {
+  .get((req, res, next) => {
     return res.json(serializeNote(res.note));
   })
   .delete((req, res, next) => {
